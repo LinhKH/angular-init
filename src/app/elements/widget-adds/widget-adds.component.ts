@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AdsService } from 'src/app/shared/services/ads.service';
+import { Ads } from 'src/app/shared/defines/ads';
 
 @Component({
   selector: 'app-widget-adds',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetAddsComponent implements OnInit {
 
-  constructor() { }
+  @Input("zvn-widget-ads") position: string;
+
+  item: Ads = null;
+
+  constructor(
+    private _adsService: AdsService
+  ) { }
 
   ngOnInit() {
+    this._adsService.getItemByPosition(this.position).subscribe(
+      (items: Ads[]) => {
+        this.item = items[0];
+      }
+    );
   }
 
 }

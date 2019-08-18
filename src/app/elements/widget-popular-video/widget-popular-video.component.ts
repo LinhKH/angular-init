@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Video } from 'src/app/shared/defines/video';
+import { VideoService } from 'src/app/shared/services/video.service';
 
 @Component({
   selector: 'app-widget-popular-video',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetPopularVideoComponent implements OnInit {
 
-  constructor() { }
+  items: Video[] = [];
+
+  constructor(
+    private _videoService: VideoService
+  ) { }
 
   ngOnInit() {
+    this._videoService.getItemsPopular().subscribe(
+      (items: Video[]) => {
+        this.items = items;
+      }
+    );
   }
 
 }

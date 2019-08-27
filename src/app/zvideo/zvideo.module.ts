@@ -15,6 +15,7 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { VideoComponent } from './video/video.component';
 import { VideosComponent } from './videos/videos.component';
 import { ErrorComponent } from './error/error.component';
+import { ZvideoComponent } from './zvideo.component';
 
 @NgModule({
 	imports: [
@@ -32,7 +33,8 @@ import { ErrorComponent } from './error/error.component';
 		PlaylistsComponent,
 		VideoComponent,
 		VideosComponent,
-		ErrorComponent
+		ErrorComponent,
+		ZvideoComponent
   	],
   	exports: [
   		

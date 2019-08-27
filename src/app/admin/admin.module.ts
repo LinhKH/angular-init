@@ -8,17 +8,21 @@ import { PushDataComponent } from "./components/push-data.component";
 
 // Routing
 import { AdminRoutingModule } from './admin-routing.module';
+import { AdminComponent } from './admin.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
 	imports: [
-		CommonModule,
+    CommonModule,
+    UserModule,
 
 		// Routing
 		AdminRoutingModule,
 	],
 	declarations: [
-		TrainingComponent,
-		PushDataComponent
+      TrainingComponent,
+      PushDataComponent,
+      AdminComponent
   	],
   	exports: [
   		

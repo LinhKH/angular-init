@@ -6,54 +6,49 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { VideoComponent } from './video/video.component';
 import { ErrorComponent } from './error/error.component';
+import { ZvideoComponent } from './zvideo.component';
 
 
 // Component
 
-
 const defineRoutes: Routes = [
 
-	// Home Page /
-	{ path: '',  component: HomeComponent },
+  {
+    path: '', component: ZvideoComponent,
+    children: [
+      { path: '', redirectTo: 'index', pathMatch: 'full' },
+      { path: 'index',  component: HomeComponent },	
+      { path: 'videos',  component: VideosComponent },
+      { path: 'playlists',  component: PlaylistsComponent },
+      { 
+        path: 'playlist',
+        children: [
+          {
+            path: '',
+            component: PlaylistsComponent
+          },
+          {
+            path: ':id',
+            component: PlaylistComponent
+          }
+        ]
+      },
+      { 
+        path: 'video',
+        children: [
+          {
+            path: '',
+            component: VideosComponent
+          },
+          {
+            path: ':id',
+            component: VideoComponent
+          }
+        ]
+      }
+    ]
+  }
 
-	// List Videos /videos?page=1
-	{ path: 'videos',  component: VideosComponent },	
-
-	// List Playlists /playlists?page=1
-	{ path: 'playlists',  component: PlaylistsComponent },
-
-	// List videos in Playlist
-	{ 
-		path: 'playlist',
-		children: [
-			{
-				path: '',
-				component: PlaylistsComponent
-			},
-			{
-				path: ':id',
-				component: PlaylistComponent
-			}
-		]
-	},
-
-	// Info video /video/:id
-	{ 
-		path: 'video',
-		children: [
-			{
-				path: '',
-				component: VideosComponent
-			},
-			{
-				path: ':id',
-				component: VideoComponent
-			}
-		]
-	},
-
-	{ path: '**',  component: ErrorComponent },
-	
 ];
 
 @NgModule({

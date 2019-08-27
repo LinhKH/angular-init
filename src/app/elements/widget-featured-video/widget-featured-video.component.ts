@@ -1,15 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Video } from './../../shared/defines/video.class';
+import { VideoService } from './../../shared/services/video.service';
+
 @Component({
-  selector: 'app-widget-featured-video',
-  templateUrl: './widget-featured-video.component.html',
-  styleUrls: ['./widget-featured-video.component.css']
+	selector: '[zvn-widget-featured-video]',
+	templateUrl: './widget-featured-video.component.html'
 })
 export class WidgetFeaturedVideoComponent implements OnInit {
+	items: Video[] = [];
 
-  constructor() { }
+	constructor(
+		private _videoService: VideoService
+	) {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+		this._videoService.getItemsFeatured().subscribe(
+			(items: Video[]) => {
+				this.items = items;
+			}
+		);
+	}
 }

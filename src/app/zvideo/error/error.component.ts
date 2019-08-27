@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+	moduleId: module.id,
+	selector: 'zvn-zvideo-error',
+	templateUrl: './error.component.html'
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

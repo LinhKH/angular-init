@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Video } from 'src/app/shared/defines/video';
-import { VideoService } from 'src/app/shared/services/video.service';
+
+import { Video } from './../../shared/defines/video.class';
+import { VideoService } from './../../shared/services/video.service';
 
 @Component({
-  selector: 'app-widget-popular-video',
-  templateUrl: './widget-popular-video.component.html',
-  styleUrls: ['./widget-popular-video.component.css']
+	selector: '[zvn-widget-popular-video]',
+	templateUrl: './widget-popular-video.component.html'
 })
 export class WidgetPopularVideoComponent implements OnInit {
+	items: Video[] = [];
 
-  items: Video[] = [];
+	constructor(
+		private _videoService: VideoService
+	) {}
 
-  constructor(
-    private _videoService: VideoService
-  ) { }
-
-  ngOnInit() {
-    this._videoService.getItemsPopular().subscribe(
-      (items: Video[]) => {
-        this.items = items;
-      }
-    );
-  }
-
+	ngOnInit() {
+		this._videoService.getItemsPopular().subscribe(
+			(items: Video[]) => {
+				this.items = items;
+			}
+		);
+	}
 }

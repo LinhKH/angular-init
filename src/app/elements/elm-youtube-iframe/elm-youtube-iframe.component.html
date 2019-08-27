@@ -1,1 +1,7 @@
-<p>elm-youtube-iframe works!</p>
+<iframe 
+	width="{{ width }}" 
+	height="{{ height }}" 
+	[src]="('https://www.youtube.com/embed/' + videoID) | safe "  
+	frameborder="0" 
+	allowfullscreen="">
+</iframe>

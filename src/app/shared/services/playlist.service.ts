@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Playlist } from '../defines/playlist';
-import { AppSetting } from 'src/app/app.setting';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Playlist } from './../../shared/defines/playlist.class';
+import { AppSetting } from './../../app.setting';
+import 'rxjs/Rx';
+import { Observable }     from 'rxjs/Observable';
+
+@Injectable()
 export class PlaylistService {
+	
+	constructor(
+		private _db: AngularFireDatabase
+	) {}
 
-  constructor(private _db: AngularFireDatabase) { }
-  getItems(): Observable<Playlist[]> {
+	getItems(): Observable<Playlist[]> {
 		return this._db.list(AppSetting.TBL_PLAYLIST, {
 				query: {
 					limitToFirst: 4
@@ -25,4 +29,5 @@ export class PlaylistService {
 			}
 		}).map(results => Playlist.fromJson(results[0]));
 	}
+
 }

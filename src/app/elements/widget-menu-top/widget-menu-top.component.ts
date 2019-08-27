@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-menu-top',
-  templateUrl: './widget-menu-top.component.html',
-  styleUrls: ['./widget-menu-top.component.css']
+	selector: '[zvn-widget-menu-top]',
+	templateUrl: './widget-menu-top.component.html'
 })
 export class WidgetMenuTopComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+		
+	}
 }

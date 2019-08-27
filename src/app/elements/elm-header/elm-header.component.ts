@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-elm-header',
-  templateUrl: './elm-header.component.html',
-  styleUrls: ['./elm-header.component.css']
+	// moduleId: module.id,
+	selector: '[zvn-elm-header]',
+	templateUrl: './elm-header.component.html'
 })
 export class ElmHeaderComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

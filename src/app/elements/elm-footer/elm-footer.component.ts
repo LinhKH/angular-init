@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-elm-footer',
-  templateUrl: './elm-footer.component.html',
-  styleUrls: ['./elm-footer.component.css']
+	// moduleId: module.id,
+	selector: 'zvn-elm-footer',
+	templateUrl: './elm-footer.component.html'
 })
 export class ElmFooterComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

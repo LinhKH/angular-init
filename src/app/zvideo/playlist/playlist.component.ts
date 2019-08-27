@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute, Params  } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'app-playlist',
-  templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.css']
+	moduleId: module.id,
+	selector: 'zvn-zvideo-playlist',
+	templateUrl: './playlist.component.html'
 })
 export class PlaylistComponent implements OnInit {
+	subscription: Subscription;
+	playlistID: string = null;
+	layoutDefault: string = 'grid';
+	
+	constructor(
+		private _activatedRouteService: ActivatedRoute
+	) {}
 
-  constructor() { }
+	ngOnInit() {
+		this.subscription = this._activatedRouteService.params.subscribe(
+			(params : Params) => {
+				this.playlistID = params['id'];
+			}
+		);
+	}
 
-  ngOnInit() {
-  }
-
+	ngOnDestroy(){
+		this.subscription.unsubscribe();
+	}
 }

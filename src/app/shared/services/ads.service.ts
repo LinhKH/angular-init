@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Ads } from '../defines/ads';
-import { AppSetting } from 'src/app/app.setting';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Ads } from './../../shared/defines/ads.class';
+import { AppSetting } from './../../app.setting';
+import 'rxjs/Rx';
+import { Observable }     from 'rxjs/Observable';
+
+@Injectable()
 export class AdsService {
-
-  constructor(
+	
+	constructor(
 		private _db: AngularFireDatabase
 	) {}
 
@@ -20,5 +21,6 @@ export class AdsService {
 			}
 		}).map(Ads.fromJsonList);
 	}
+
 
 }

@@ -1,16 +1,24 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { TrainingComponent } from './training/training.component';
-import { PushDataComponent } from './push-data/push-data.component';
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 
-const routes: Routes = [
-  { path: 'training',  component: TrainingComponent},
+// Component
+import { TrainingComponent } from "./components/training.component";
+import { PushDataComponent } from "./components/push-data.component";
+
+
+const defineRoutes: Routes = [
+	{ path: 'training',  component: TrainingComponent },
 	{ path: 'push-data',  component: PushDataComponent },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [
+		RouterModule.forChild(defineRoutes)
+	],
+	exports: [
+		RouterModule
+	]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

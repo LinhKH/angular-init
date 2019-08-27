@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-elm-loader',
-  templateUrl: './elm-loader.component.html',
-  styleUrls: ['./elm-loader.component.css']
+	// moduleId: module.id,
+	selector: 'zvn-elm-loader',
+	templateUrl: './elm-loader.component.html'
 })
+
 export class ElmLoaderComponent implements OnInit {
 
-  constructor() { }
+	// @Input("isLoading") isLoading: boolean = false;
+	
+	constructor()
+	{
+		
+	}
 
-  ngOnInit() {
-  }
-
+	ngOnInit(){
+		
+	}
+	
 }

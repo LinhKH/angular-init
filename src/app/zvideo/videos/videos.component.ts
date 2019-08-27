@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.css']
+	moduleId: module.id,
+	selector: 'zvn-zvideo-videos',
+	templateUrl: './videos.component.html'
 })
 export class VideosComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

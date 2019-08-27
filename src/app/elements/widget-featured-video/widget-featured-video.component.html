@@ -1,1 +1,7 @@
-<p>widget-featured-video works!</p>
+<h3>Featured Videos</h3>
+<zvn-elm-loader *ngIf="items.length == 0"></zvn-elm-loader>
+
+<div class="widget-videos-small" *ngIf="items">
+	<!-- ELEMENT VIDEO -->
+	<div class="item" *ngFor="let item of items" [zvn-elm-video]="item"></div>	
+</div>

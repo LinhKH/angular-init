@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget-social',
-  templateUrl: './widget-social.component.html',
-  styleUrls: ['./widget-social.component.css']
+	selector: '[zvn-widget-social]',
+	templateUrl: './widget-social.component.html'
 })
 export class WidgetSocialComponent implements OnInit {
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Video } from './../../shared/defines/video.class';
 
 @Component({
-  selector: 'app-elm-video',
-  templateUrl: './elm-video.component.html',
-  styleUrls: ['./elm-video.component.css']
+	// moduleId: module.id,
+	selector: '[zvn-elm-video]',
+	templateUrl: './elm-video.component.html'
 })
 export class ElmVideoComponent implements OnInit {
+	@Input("show-desc") showDescription: boolean = false;
+	@Input("zvn-elm-video") item: Video = null;
 
-  constructor() { }
+	constructor() {}
 
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+	}
 }

@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Playlist } from './../../shared/defines/playlist.class';
+import { PlaylistService } from './../../shared/services/playlist.service';
+
 @Component({
-  selector: 'app-widget-playlist',
-  templateUrl: './widget-playlist.component.html',
-  styleUrls: ['./widget-playlist.component.css']
+	selector: '[zvn-widget-playlist]',
+	templateUrl: './widget-playlist.component.html'
 })
 export class WidgetPlaylistComponent implements OnInit {
+	items: Playlist[] = [];
+	constructor(
+		private _playlistService: PlaylistService
+	) {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	ngOnInit() {
+		this._playlistService.getItems().subscribe(
+			(items: Playlist[]) => {
+				this.items = items;
+			}
+		);
+	}
 }
